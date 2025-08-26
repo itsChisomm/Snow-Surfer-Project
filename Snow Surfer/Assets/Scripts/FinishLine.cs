@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class FinishLine : MonoBehaviour
 
         if (collision.gameObject.layer == layerIndex)
         {
-            Debug.Log("You reached the finish line!");
+            SceneManager.LoadScene(0);
+            
         }
         
     }
