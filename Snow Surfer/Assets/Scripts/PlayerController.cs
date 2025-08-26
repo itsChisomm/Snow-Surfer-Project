@@ -3,13 +3,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [SerializeField] private float torqueAmount = 1f; // Amount of torque to apply for rotation
     InputAction moveAction;
+    Rigidbody2D myRigidbody2D;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {       
         moveAction = InputSystem.actions.FindAction("Move");
+        myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -17,5 +19,6 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>(); // Read the value of the "Move" action
         print(moveVector); // Print the move vector to the console
+        myRigidbody2D.AddTorque(torqueAmount);
     }
 }
