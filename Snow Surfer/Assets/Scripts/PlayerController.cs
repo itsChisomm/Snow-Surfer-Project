@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     bool canControlPlayer = true;
     float previousRotation;
     float totalRotation;
-    int flipCount = 0;
+    
 
     Vector2 moveVector;
 
@@ -88,5 +88,19 @@ public class PlayerController : MonoBehaviour
     public void DisableControls() 
     {       
         canControlPlayer = false;
+    }
+
+    public void ActivatePowerup(PowerupSO powerup)
+    {
+        if (powerup.GetPowerupType() == "speed")
+        {
+            baseSpeed += powerup.GetValueChange();
+            boostSpeed += powerup.GetValueChange();
+        }
+        else if (powerup.GetPowerupType() == "torque")
+        {
+            torqueAmount += powerup.GetValueChange();
+
+        }
     }
 }

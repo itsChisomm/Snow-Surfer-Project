@@ -13,9 +13,7 @@ public class FinishLine : MonoBehaviour
         if (collision.gameObject.layer == layerIndex)
         {
             finishParticles.Play();
-            Invoke("ReloadScene", restartDelay);
-            //SceneManager.LoadScene(0);
-            
+            Invoke("ReloadScene", restartDelay);                       
         }
         
     }
