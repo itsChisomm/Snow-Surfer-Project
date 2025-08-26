@@ -19,6 +19,17 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveVector = moveAction.ReadValue<Vector2>(); // Read the value of the "Move" action
         print(moveVector); // Print the move vector to the console
-        myRigidbody2D.AddTorque(torqueAmount);
+        if (moveVector.x < 0)
+        {
+            myRigidbody2D.AddTorque(torqueAmount); // Apply torque to rotate the player left
+        } 
+        
+        else if (moveVector.x > 0)
+        
+        {
+            myRigidbody2D.AddTorque(-torqueAmount); // Apply torque in the opposite direction
+        }  
+
+        
     }
 }
