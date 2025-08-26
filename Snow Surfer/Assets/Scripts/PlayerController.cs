@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     Rigidbody2D myRigidbody2D;
     SurfaceEffector2D surfaceEffector2D;
+    ScoreManager scoreManager;
 
     bool canControlPlayer = true;
     float previousRotation;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         myRigidbody2D = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
+        scoreManager = FindFirstObjectByType<ScoreManager>(); // Reference to the ScoreManager
     }
 
     // Update is called once per frame
@@ -75,9 +77,8 @@ public class PlayerController : MonoBehaviour
 
         if (totalRotation > 340 || totalRotation < -340)
         {
-            flipCount += 1;
             totalRotation = 0; // Reset total rotation after counting a flip
-            print("Flips: " + flipCount);
+            scoreManager.AddScore(100); // Add 100 points for each flip
         }
 
 
