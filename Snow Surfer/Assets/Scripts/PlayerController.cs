@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
             myRigidbody2D.AddTorque(torqueAmount); // Apply torque to rotate the player left
         } 
         
-        else if (moveVector.x > 0)
+        else if (moveVector.x > 0) 
         
         {
             myRigidbody2D.AddTorque(-torqueAmount); // Apply torque in the opposite direction
